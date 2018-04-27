@@ -15,7 +15,7 @@
         <option value=9>九月</option>
         <option value=10>十月</option>
         <option value=11>十一月</option>
-        <option value=12>十二月`</option>
+        <option value=12>十二月</option>
     </select>
     <input type="submit">
 </form>
@@ -42,7 +42,7 @@ $m = $_GET['m'];
     echo '<hr>';
 
 
-    $a = '1'
+    $a = '1';
     switch ($a){
         case 1:echo 'A';break;
         case '1':echo 'B';break;
