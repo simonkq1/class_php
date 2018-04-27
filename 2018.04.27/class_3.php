@@ -21,19 +21,19 @@ echo '<hr>';
 
 $a4 = array(12, 34, 56, 'iii', false);
 var_dump($a4);
-echo'<hr>';
+echo '<hr>';
 
 $a1[] = 111;
 $a1[] = 222;
 var_dump($a1);
-echo'<hr>';
+echo '<hr>';
 $a2[] = 111;
 $a2[2] = 222;
 $a2[] = 333;
 var_dump($a2);
-echo'<hr>';
+echo '<hr>';
 $a3[123] = 111;
 $a3[] = 222;
 $a3[] = 333;
 var_dump($a3);
-echo'<hr>';
+echo '<hr>';
