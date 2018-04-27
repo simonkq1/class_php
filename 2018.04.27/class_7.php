@@ -12,9 +12,8 @@ var_dump($a);
 
 echo '<hr>';
 
-foreach ($a as $sub){
-    foreach ($sub as $v){
-
+foreach ($a as $sub) {
+    foreach ($sub as $v) {
         echo $v . '';
     }
     echo '<br>';
