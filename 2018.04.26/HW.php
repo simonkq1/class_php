@@ -1,7 +1,7 @@
 
 
 <form>
-<input type="text" name="y" value="">
+<input type="text" name="y" value="" placeholder="輸入年份"/>
 
 <input type="submit" value="="/>
 </form>
@@ -26,7 +26,7 @@ if($z==0 && $x==0 && $c==0){
 ?>
 <!--z=0  y-->
 <!--z=0 x=0 n-->
-<!--z=0 x=0 y=0 y-->
+<!--z=0 x=0 c=0 y-->
 <!---->
 <!--echo '閏年';-->
 <!--echo '不是閏年';-->
