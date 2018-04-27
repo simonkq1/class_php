@@ -9,6 +9,10 @@ $a2[0] = 123;
 $a2[1] = 12.3;
 $a2[4] = 'brad';
 var_dump($a2);
+echo '<br>';
+foreach ($a2 as $key => $value){
+    echo "{$key}:{$value}<br>";
+}
 
 echo '<hr>';
 $a3['name'] = 'brad';

@@ -7,11 +7,8 @@
 <?php
     $v1 = $_GET['v1'];
     $v2 = $_GET['v2'];
-=======
-<?php
     $v1 = 50;
     $v2 = 3;
->>>>>>> Simon/master
     $v3 = $v1/$v2;
     $v4 = floor($v3);
     $v5 = $v1%$v2;
@@ -20,9 +17,5 @@
 
 ?>
 
-<<<<<<< HEAD
 </form>
-=======
-
->>>>>>> Simon/master
 
