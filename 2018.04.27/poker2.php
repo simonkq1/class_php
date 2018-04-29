@@ -64,5 +64,5 @@ echo '<hr>'
     }
     ?>
 </table>
-<!-- &spades; &hearts; &diams; &clubs;-->
+<!-- &spades; &hearts; &diams; &clubs;  -->
 
