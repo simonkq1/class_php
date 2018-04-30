@@ -53,4 +53,9 @@ function checkAB($a, $g)
 */
 
 
+function checkTWId($twid){
+
+    return true | false;
+}
+
 
