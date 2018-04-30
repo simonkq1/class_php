@@ -5,9 +5,9 @@ if (isset($_GET['id'])) {
     $id = $_GET['id'];
 
     $isRight = checkTWId($id);
-    if ($isRight){
+    if ($isRight) {
         echo 'OK';
-    }else{
+    } else {
         echo 'XX';
     }
 
