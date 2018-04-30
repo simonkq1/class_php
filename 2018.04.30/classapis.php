@@ -11,3 +11,11 @@ function creataAnswer($n)
     return $ret;
 }
 
+function checkAB($topic, $ans){
+    if ($topic != $ans){
+        echo '1A2B';
+    }
+
+}
+
+
