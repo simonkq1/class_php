@@ -22,7 +22,7 @@ for ($i = 0; $i < 52; $i++) {
             }
         }
 
-    }while($isRepeat);
+    } while ($isRepeat);
     $poker[$i] = $r;
 }
 foreach ($poker as $v) {
