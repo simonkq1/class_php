@@ -14,7 +14,7 @@
 
 
 //        for ($q = 2; $q <= $sum; $q++) {
-//            if ($sum%$q==0) {
+//            if ($sum%$==0) {
 //                echo "<td>{$sum}</td>";
 //            }else{
 //                echo "<td bgcolor='yellow'>{$sum}</td>";

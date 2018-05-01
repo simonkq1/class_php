@@ -1,0 +1,98 @@
+Last login: Tue May  1 11:30:05 on ttys000
+Mac26de-MacBook-Pro:~ admin$ /Applications/MAMP/htdocs/
+-bash: /Applications/MAMP/htdocs/: is a directory
+Mac26de-MacBook-Pro:~ admin$ cd /Applications/MAMP/htdocs/
+Mac26de-MacBook-Pro:htdocs admin$ cd 2018.05.01
+Mac26de-MacBook-Pro:2018.05.01 admin$ chmod 774 test2
+Mac26de-MacBook-Pro:2018.05.01 admin$ chmod 774 test2/
+Mac26de-MacBook-Pro:2018.05.01 admin$ chmod 774 /test2
+chmod: /test2: No such file or directory
+Mac26de-MacBook-Pro:2018.05.01 admin$ sudo chmod 774 test2/
+Password:
+Mac26de-MacBook-Pro:2018.05.01 admin$ cd/
+-bash: cd/: No such file or directory
+Mac26de-MacBook-Pro:2018.05.01 admin$ cd /
+Mac26de-MacBook-Pro:/ admin$  cd
+Mac26de-MacBook-Pro:~ admin$ pwd
+/Users/admin
+Mac26de-MacBook-Pro:~ admin$ mkdir dir1
+Mac26de-MacBook-Pro:~ admin$ ce dir1/
+-bash: ce: command not found
+Mac26de-MacBook-Pro:~ admin$ cd dir1/
+Mac26de-MacBook-Pro:dir1 admin$ ls -la
+total 0
+drwxr-xr-x   2 admin  staff   68  5  1 14:02 .
+drwxr-xr-x+ 18 admin  staff  612  5  1 14:02 ..
+Mac26de-MacBook-Pro:dir1 admin$ touch  file1
+Mac26de-MacBook-Pro:dir1 admin$ ls -la
+total 0
+drwxr-xr-x   3 admin  staff  102  5  1 14:02 .
+drwxr-xr-x+ 18 admin  staff  612  5  1 14:02 ..
+-rw-r--r--   1 admin  staff    0  5  1 14:02 file1
+Mac26de-MacBook-Pro:dir1 admin$ umask 
+0022
+Mac26de-MacBook-Pro:dir1 admin$ cd ..
+Mac26de-MacBook-Pro:~ admin$ cd /Applications/MAMP/htdocs//2018.05.01/test1
+Mac26de-MacBook-Pro:test1 admin$ li -a
+-bash: li: command not found
+Mac26de-MacBook-Pro:test1 admin$ li -l
+-bash: li: command not found
+Mac26de-MacBook-Pro:test1 admin$ ls -l
+total 16
+-rw-r--r--  1 admin  admin   54  5  1 15:03 class_1.txt
+-rw-r--r--  1 admin  admin   12  5  1 10:53 class_2.txt
+drwxr-xr-x  3 admin  admin  102  5  1 12:03 dir1
+Mac26de-MacBook-Pro:test1 admin$ sudo chmod 777 class_1.txt
+Password:
+Mac26de-MacBook-Pro:test1 admin$ cd ..
+Mac26de-MacBook-Pro:2018.05.01 admin$ chmod 777 test3
+Mac26de-MacBook-Pro:2018.05.01 admin$ ld -l
+ld: library not found for -l
+Mac26de-MacBook-Pro:2018.05.01 admin$ ls -l
+total 64
+-rw-r--r--  1 admin  admin  1054  5  1 10:16 class_1.php
+-rw-r--r--  1 admin  admin   289  5  1 10:37 class_2.php
+-rw-r--r--  1 admin  admin   583  5  1 14:42 class_3.php
+-rw-r--r--  1 admin  admin   310  5  1 15:42 class_4.php
+-rw-r--r--  1 admin  admin   387  5  1 15:18 class_5.php
+-rw-r--r--  1 admin  admin   202  5  1 15:46 class_6.php
+-rw-r--r--  1 admin  admin     0  5  1 15:46 class_7.php
+-rw-r--r--  1 admin  admin   615  5  1 15:29 test.php
+drwxr-xr-x  5 admin  admin   170  5  1 15:38 test1
+drwxrwxr--  5 admin  admin   170  5  1 11:41 test2
+-rw-r--r--  1 admin  admin    86  5  1 15:30 test2.php
+drwxrwxrwx  2 admin  admin    68  5  1 15:47 test3
+Mac26de-MacBook-Pro:2018.05.01 admin$ cd test3
+Mac26de-MacBook-Pro:test3 admin$ rm 123
+override rw-r--r--  iii/admin for 123? 
+Mac26de-MacBook-Pro:test3 admin$ rm brad02.html
+override rw-r--r--  iii/admin for brad02.html? admin
+Mac26de-MacBook-Pro:test3 admin$ rm brad02.html
+override rw-r--r--  iii/admin for brad02.html? yes
+Mac26de-MacBook-Pro:test3 admin$ cd
+Mac26de-MacBook-Pro:~ admin$ cd /Applications/MAMP/tmp/php
+Mac26de-MacBook-Pro:php admin$ cd ls -la
+-bash: cd: ls: No such file or directory
+Mac26de-MacBook-Pro:php admin$ ls -li
+Mac26de-MacBook-Pro:php admin$ ls -la
+total 0
+drwxrwxr-x  3 admin  admin  102 11 27 22:54 .
+drwxrwxr-x  8 admin  admin  272  5  1 13:44 ..
+-rw-rw-r--  1 admin  admin    0 11 27 22:54 .dummy
+Mac26de-MacBook-Pro:php admin$ cd..
+-bash: cd..: command not found
+Mac26de-MacBook-Pro:php admin$ cd ..
+Mac26de-MacBook-Pro:tmp admin$ ls -la
+total 0
+drwxrwxr-x   8 admin  admin  272  5  1 13:44 .
+drwxrwxr-x@ 21 admin  admin  714  4 27 08:41 ..
+-rw-r--r--   1 admin  admin    0  5  1 13:44 .MAMPDidStartApache
+-rw-r--r--   1 admin  admin    0  5  1 13:44 .MAMPDidStartMySQL
+drwxrwxr-x   3 admin  admin  102 11 27 22:54 eaccelerator
+drwxrwxr-x   5 admin  admin  170  5  1 13:44 mysql
+drwxrwxr-x   3 admin  admin  102 11 27 22:54 php
+drwxrwxr-x   3 admin  admin  102 11 27 22:54 phpcore
+Mac26de-MacBook-Pro:tmp admin$ chmod 777 php
+Mac26de-MacBook-Pro:tmp admin$ pwd
+/Applications/MAMP/tmp
+Mac26de-MacBook-Pro:tmp admin$ 

@@ -1,10 +1,10 @@
 <?php
-    $filename = $_REQUEST['filename'];
-    $cont = $_REQUEST['cont'];
+$filename = $_REQUEST['filename'];
+$cont = $_REQUEST['cont'];
 
-    $fp = fopen("test3/{$filename}",'w+');
+$fp = fopen("test3/{$filename}", 'w+');
 
-    fwrite($fp,$cont);
-    fclose($fp);
+fwrite($fp, $cont);
+fclose($fp);
 
-    header("Location: test3/{$filename}");
+header("Location: test3/{$filename}");
