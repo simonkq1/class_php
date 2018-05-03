@@ -10,14 +10,33 @@ $bike = new Bike();
 
 doM2($sub1);
 doM2($sub2);
-function doM2(MyOOTest $obj){
+echo '<hr>';
 
-    if($obj instanceof Sub1){
+$sub11 = new Sub1();
+$sub22 = new Sub2();
+$sub11->x = 12;
+$sub22->x = 34;
+
+echo "{$sub11->x} : {$sub22->x}<br>";
+$sub33 = clone $sub22;
+$sub22 = $sub11;
+
+echo "{$sub11->x} : {$sub22->x} : {$sub33->x}<br>";
+
+$sub22->x=56;
+
+echo "{$sub11->x} : {$sub22->x} : {$sub33->x}<br>";
+
+
+function doM2(MyOOTest $obj)
+{
+
+    if ($obj instanceof Sub1) {
         echo 'I am sub1<br>';
-    }else if($obj instanceof Sub2){
+    } else if ($obj instanceof Sub2) {
         echo 'I am sub2<br>';
 
-    }else if($obj instanceof MyOOTest){
+    } else if ($obj instanceof MyOOTest) {
         echo 'I am MyOOTest<br>';
 
     }
