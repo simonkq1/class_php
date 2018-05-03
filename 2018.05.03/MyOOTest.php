@@ -37,7 +37,7 @@ abstract class Test1{
     function m1(){
         echo 'Test1:m1()<br>';
     }
-    abstract function m2 ();
+    abstract function m2 ();  //抽象方法   子類別必須執行抽象方法
 }
 
 class Test11 extends Test1{

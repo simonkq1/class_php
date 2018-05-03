@@ -27,6 +27,13 @@ $sub22->x=56;
 
 echo "{$sub11->x} : {$sub22->x} : {$sub33->x}<br>";
 
+echo '<hr>';
+
+//$test1 = new Test1();  //抽象類別無法被建立出物件實體!!!
+$test11 = new Test11();
+$test12 = new Test12();
+
+
 
 function doM2(MyOOTest $obj)
 {
