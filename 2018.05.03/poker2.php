@@ -14,7 +14,7 @@ for ($i = 0; $i < $r; $i++) {
 }
 
 foreach ($a2 as $k => $v) {
-    echo "{$k} : {$v} <br>";
+    echo "{$k} => {$v} <br>";
 }
 
 //print_r($a2);
