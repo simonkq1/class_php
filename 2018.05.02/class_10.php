@@ -56,7 +56,7 @@ if ($r > 10) {
     for ($j = 1; $j <= $r / 10; $j++) {
         echo '<td>';
         for ($i = 0; $i < 10; $i++) {
-            $myId = new TWId(isset($_GET['gender']) ? $g : rand(0, 1), isset($_GET['area']) ? $a : -1);
+            $myId = new TWId('',isset($_GET['gender']) ? $g : rand(0, 1), isset($_GET['area']) ? $a : -1);
             echo $myId->getId() . '<br></p>';
         }
         echo '</td>';
@@ -65,7 +65,7 @@ if ($r > 10) {
 
     echo '<td>';
     for ($i = 0; $i < $r; $i++) {
-        $myId = new TWId(isset($_GET['gender']) ? $g : rand(0, 1), isset($_GET['area']) ? $a : -1);
+        $myId = new TWId('',isset($_GET['gender']) ? $g : rand(0, 1), isset($_GET['area']) ? $a : -1);
         echo $myId->getId() . '<br>';
     }
     echo '</td>';
