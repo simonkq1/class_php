@@ -1,7 +1,6 @@
 <?php
 
-
-class s
+class lab_1
 {
 
 }
