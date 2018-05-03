@@ -33,7 +33,7 @@ function primeNumbers($num)
 
 }
 
-primeNumbers(92)
+primeNumbers(100)
 ?>
 
 
