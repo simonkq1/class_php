@@ -8,7 +8,9 @@ for(;count($x)<51;){
     $x=array_unique($poker);
 }
 //var_dump($poker);
-foreach (array_values($x) as $k=>$v){
+$c=array_values($x);
+
+foreach ($c as $k=>$v){
     echo "{$k} : {$v}<br>";
 
 }
