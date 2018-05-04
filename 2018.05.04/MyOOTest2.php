@@ -88,3 +88,24 @@ abstract class Students4 implements iOS{
 
 }
 
+
+trait Test1 {
+    function m1(){
+        echo 'Test1:m1()<br>';
+    }
+}
+
+trait Test2 {
+    function m2(){
+        echo 'Test1:m2()<br>';
+    }
+    function m3(){
+        echo 'Test1:m3()<br>';
+    }
+}
+
+
+class Test3{
+    use Test1;
+    use Test2;
+}
