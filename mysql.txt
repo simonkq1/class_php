@@ -1,1 +1,1 @@
-mysql> ALTER USER 'root'@'localhost' IDENTIFIED BY 'MyNewPass';
+mysql> ALTER USER 'root'@'localhost' IDENTIFIED BY 'root';

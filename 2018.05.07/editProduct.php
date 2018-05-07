@@ -31,7 +31,7 @@ $id = $_REQUEST['id'];
 EditProduct:
 <hr>
 <form>
-    <input type="text" name="id" value="<?php echo "$product->id"; ?>" hidden />
+    <input type=hidden name="id" value="<?php echo "$product->id"; ?>" />
     Pname:<input name="pname" value="<?php echo "$product->pname"; ?>"> <br>
     Price:<input type="number" name="price" value="<?php echo "$product->price"; ?>"> <br>
     Qty.:<input type="number" name="qty" value="<?php echo "$product->qty"; ?>"> <br>
