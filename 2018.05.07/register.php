@@ -1,18 +1,20 @@
 <?php
 include_once 'sql.php';
 
-if (isset($_REQUEST['account'])){
+if (isset($_REQUEST['account'])) {
     $account = $_REQUEST['account'];
     $password = $_REQUEST['password'];
     $name = $_REQUEST['name'];
 
-    $sql = "insert into `member` (`name`,`account`,`password`)" .
-        " values ('{$name}','{$account}','{$password}')";
+    $newpassword = password_hash($password, PASSWORD_DEFAULT);
 
-    if($mysqli->query($sql)){
+    $sql = "insert into `member` (`name`,`account`,`password`)" .
+        " values ('{$name}','{$account}','{$newpassword}')";
+
+    if ($mysqli->query($sql)) {
         header('Location: login.php');
 
-    }else {
+    } else {
         echo 'insert error';
     }
 }
