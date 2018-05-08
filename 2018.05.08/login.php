@@ -7,7 +7,8 @@
     <input type="submit" value="sign in"><br>
     <button type="button" onclick="location.href='register.php'" name="newlogin">
         sign up
-    </button><br>
+    </button>
+    <br>
 </form>
 
 

@@ -64,7 +64,7 @@ while ($product = $result->fetch_object('product')){
     echo "<td>{$product->id}</td>";
     echo "<td>{$product->pname}</td>";
     echo "<td>{$product->price}</td>";
-    echo "<td>{$product->qty}</td>";
+    echo "<td >{$product->qty}</td>";
 //    echo "<td><a href='mytest.php' onclick='return confirmDelet(\"{$product->pname}\");'>Delete</a></td>";
     echo "<td><a href='?delid={$product->id}' onclick='return confirmDelet(\"{$product->pname}\")'>Delete</a></td>";
     echo "<td><a href='editProduct.php?editid={$product->id}'>Edit</a></td>";
