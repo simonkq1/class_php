@@ -1,2 +1,3 @@
 <?php
-const RPP=3;
+define('RPP', 4);   // record pre page
+?>

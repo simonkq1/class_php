@@ -11,6 +11,14 @@ class Cart{
         return $this->list;
     }
 
+    function getItemNum($pid){
+        if(isset($this->list["{$pid}"])){
+            return $this->list["{$pid}"];
+        }else{
+            return 0;
+        }
+    }
+
     function addProduct($pid,$num){
         $this->list["{$pid}"]=$num;
     }
