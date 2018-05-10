@@ -22,9 +22,11 @@ $i=1;
     </tr>
     <?php
 //    $sql='select * from product where id ='
+    $total=0;
     foreach ($cart->getList() as $item=>$num){
         $price = $myquery->getPInfo($item,MyQuery::QUERY_PRICE);
         $sum=$num*$price;
+        $total+=$sum;
         echo "<tr>";
         echo "<td>{$i}</td>";
         echo "<td>".$myquery->getPInfo($item,MyQuery::QUERY_PNAME)."</td>";
@@ -34,8 +36,10 @@ $i=1;
         echo "</tr>";
         $i++;
     }
+    echo "<tr><td></td><td></td><td></td><th>total:</th><th align='left'>{$total}</th></tr>";
     ?>
 
 </table>
 
 <a href="close.php">Close</a>
+<a href="pay.php">Pay</a>
