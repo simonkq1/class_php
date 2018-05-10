@@ -11,11 +11,20 @@ include_once 'myconfig.php';
 session_start();
 if (!isset($_SESSION['member'])) header('Location: login.php');
 
+$member = $_SESSION['member'];
 $cart = $_SESSION['cart'];
 $sql = 'select * from product';
 $result = $mysqli->query($sql);
 
 ?>
+Hello, <?php echo $member->account. '<br>'?>
+<?php
+if($icon=base64_encode($member->icon)){
+    echo "<img src='data:image/png;base64,{$icon}' /> <br>";
+}
+?>
+<a href="editProfile.php">更換頭像</a>
+<!--<img src='data:image/png;base64,--><?php //echo $icon ?><!--' /> <br>-->
 <hr>
 <div width="70%" align="center">
 

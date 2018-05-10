@@ -7,10 +7,14 @@ $account = $_REQUEST['account'];
 $password = $_REQUEST['password'];
 
 $sql = "select * from member " .
-    "where account='{$account}'";
+    "where account=?";
+
+$stmt = $mysqli->prepare($sql);
+$stmt->bind_param("s",$account);
+$stmt->execute();
 
 
-$result = $mysqli->query($sql);
+$result = $stmt->get_result();
 
 
 if ($result->num_rows > 0) {

@@ -5,11 +5,16 @@ if (isset($_REQUEST['account'])) {
     $account = $_REQUEST['account'];
     $password = $_REQUEST['password'];
     $name = $_REQUEST['name'];
+    if($_FILES['icon']['error']==0){
+        $icon = addslashes(file_get_contents($_FILES['icon']['tmp_name'])) ;
+    }else{
+        $icon='';
+    }
 
     $newpassword = password_hash($password, PASSWORD_DEFAULT);
 
-    $sql = "insert into `member` (`name`,`account`,`password`)" .
-        " values ('{$name}','{$account}','{$newpassword}')";
+    $sql = "insert into `member` (`name`,`account`,`password`,`icon`)" .
+        " values ('{$name}','{$account}','{$newpassword}','{$icon}')";
 
     if ($mysqli->query($sql)) {
         header('Location: login.php');
@@ -49,10 +54,11 @@ if (isset($_REQUEST['account'])) {
     }
 </script>
 
-<form>
+<form method="post" enctype="multipart/form-data">
     Account: <input type="text" id="account" name="account" onkeyup="isNewAccount()"><span id="mesg" ></span><br>
     Password: <input type="password" name="password"><br>
     Real name: <input type="text" name="name"><br>
+    Icon: <input type="file" name="icon"><br>
     <input type="submit" value="sent"><br>
 </form>
 
