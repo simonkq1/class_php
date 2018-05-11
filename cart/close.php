@@ -21,5 +21,6 @@ foreach ($cart->getList() as $pid => $num) {
 }
 
 
+
 //session_destroy();
 header('Location:main.php');
