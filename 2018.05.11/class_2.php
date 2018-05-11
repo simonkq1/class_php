@@ -10,16 +10,16 @@ $error = libxml_get_errors();
 //var_dump($xml);
 //echo  '<hr>';
 //echo $xml->getName() . ":" . $xml->count();
-echo  '<hr>';
+echo '<hr>';
 
-foreach($xml as $k => $v){
+foreach ($xml as $k => $v) {
 //    echo gettype($v).'<br>';
 //    echo "{$k} : <br>";
-    foreach ($v as $kk=>$vv){
+    foreach ($v as $kk => $vv) {
 //    echo gettype($vv).'<br>';
 //    echo "{$kk} : <br>";
-        $attrs=$vv->attributes();
-        foreach ($attrs as $field => $values){
+        $attrs = $vv->attributes();
+        foreach ($attrs as $field => $values) {
             echo "{$field} : {$values} <br>";
 
         }
