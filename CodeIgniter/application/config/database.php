@@ -74,12 +74,13 @@ $active_group = 'default';
 $query_builder = TRUE;
 
 $db['default'] = array(
-	'dsn'	=> '',
+	'dsn'	=> 'mysql:host=localhost; dbname=apple;charset=utf8',
 	'hostname' => 'localhost',
-	'username' => '',
-	'password' => '',
+	'username' => 'root',
+	'password' => 'root',
 	'database' => '',
-	'dbdriver' => 'mysqli',
+//	'dbdriver' => 'mysqli',
+    'dbdriver' => 'pdo',
 	'dbprefix' => '',
 	'pconnect' => FALSE,
 	'db_debug' => (ENVIRONMENT !== 'production'),

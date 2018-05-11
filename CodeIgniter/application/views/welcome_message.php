@@ -25,9 +25,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	}
 
 	h1 {
-		color: #444;
+		color: #aa1111;
 		background-color: transparent;
-		border-bottom: 1px solid #D0D0D0;
+		border-bottom: 5px solid #D0D0D0;
 		font-size: 19px;
 		font-weight: normal;
 		margin: 0 0 14px 0;
@@ -68,7 +68,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <body>
 
 <div id="container">
-	<h1>Welcome to CodeIgniter!</h1>
+	<h1>Hello, Wrold!</h1>
 
 	<div id="body">
 		<p>The page you are looking at is being generated dynamically by CodeIgniter.</p>
