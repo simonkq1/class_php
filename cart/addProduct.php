@@ -14,6 +14,7 @@ if(isset($_REQUEST['pname'])){
 //    echo $newId;
 //    處理影像資料
     if(isset($_FILES['pimg'])){
+        $x=1;
         $pimg=$_FILES['pimg'];
 //        $pimg['tmp_name']['error']
         foreach ($pimg['error'] as $i => $errno){
