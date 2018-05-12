@@ -1,7 +1,7 @@
 <?php
 ?>
 
-<form action="checkAccount.php" method="get">
+<form action="checkAccount.php" method="post">
    Account: <input type="text" name="account"><br>
    Password: <input type="password" name="password"><br>
     <input type="submit" value="sign in"><br>

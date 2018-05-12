@@ -16,9 +16,9 @@ class member
         $this->$name = $value;
     }
 
-    function setCart($cart){
-//        return $cart;
-        $this->cart;
-    }
+//    function setCart($cart){
+////        return $cart;
+//        $this->cart;
+//    }
 
 }
