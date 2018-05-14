@@ -1,6 +1,6 @@
 <?php
 //namespace MyApp;
-require dirname(__DIR__).'/vendor/autoload.php';
+require dirname(__DIR__).'/Ratchet/vendor/autoload.php';
 
 use Ratchet\MessageComponentInterface;
 use Ratchet\ConnectionInterface;
