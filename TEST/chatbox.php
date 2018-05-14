@@ -14,14 +14,15 @@
 
 
     };
-    setInterval(function(){
-            xhttp.open('POST', 'test1.php', true)
-            xhttp.send();
+        setInterval(function(){
+                xhttp.open('POST', 'test1.php', true)
+                xhttp.send();
+                var div = document.getElementById('chatBox');
+                div.scrollTop = div.scrollHeight;
 
-            var div = document.getElementById('chatBox');
-            div.scrollTop = div.scrollHeight;
-        }
-        ,1000)
+            }
+            ,1000)
+
 // });
 
 // $("#bt1").click(
@@ -77,7 +78,7 @@
 <div class="chatArea">
 <form method="post">
     <label>
-    <input type="text" name="chat" id="chat" >
+    <input type="text" name="chat" id="chat">
     <input type="submit" value=">>">
 <!--    <button type="button" id="bt1" > >> </button>-->
     </label>
