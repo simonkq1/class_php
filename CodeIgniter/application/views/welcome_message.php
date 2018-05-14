@@ -5,8 +5,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <head>
 	<meta charset="utf-8">
 	<title>Welcome to CodeIgniter</title>
-
 	<style type="text/css">
+
 
 	::selection { background-color: #E13300; color: white; }
 	::-moz-selection { background-color: #E13300; color: white; }
@@ -67,6 +67,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 </head>
 <body>
 
+<link rel="stylesheet" href="css/bootstrap.css">
+
 <div id="container">
 	<h1>Hello, Wrold!</h1>
 
@@ -83,6 +85,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	</div>
 
 	<p class="footer">Page rendered in <strong>{elapsed_time}</strong> seconds. <?php echo  (ENVIRONMENT === 'development') ?  'CodeIgniter Version <strong>' . CI_VERSION . '</strong>' : '' ?></p>
+</div>
+
+<div class="dropdown">
+    <button class="btn btn-danger dropdown-toggle" type="button" >112233</button>
+
 </div>
 
 </body>

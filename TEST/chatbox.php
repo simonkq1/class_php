@@ -76,9 +76,11 @@
 </div>
 <div class="chatArea">
 <form method="post">
+    <label>
     <input type="text" name="chat" id="chat" >
-<!--    <input type="submit" value=">>">-->
-    <button type="button" id="bt1" > >> </button>
+    <input type="submit" value=">>">
+<!--    <button type="button" id="bt1" > >> </button>-->
+    </label>
 </form>
 </div>
 

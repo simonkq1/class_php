@@ -1,3 +1,6 @@
+
+<link rel="stylesheet" href="../css/bootstrap.css" />
+
 <h1>Hello,world</h1>
 <hr>
 <?php

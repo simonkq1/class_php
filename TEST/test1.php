@@ -12,7 +12,7 @@ if ($result = $mysqli->query($sql)) {
     while ($data = $result->fetch_assoc()) {
 //        if($data['cid']==$member->id){
 
-            echo " <p id='a'>{$data['name']} >> &nbsp;<span id='chatSpan'> &nbsp;{$data['date']} : {$data['text']} &nbsp; </span></p>";
+            echo " <p id='a'>{$data['name']} >> &nbsp;{$data['date']}: <span id='chatSpan'> &nbsp; {$data['text']} &nbsp; </span></p>";
 //        echo '<br>';
 //        }
 
