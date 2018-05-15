@@ -26,7 +26,7 @@
 
                 ws.onopen = function () {
 
-                    var myName = document.getElementById('myname').value;
+                    var myName = document.getElementById('<?php echo $member->id ?>').value;
                     // debugger;
                     // Web Socket is connected, send data using send()
                     ws.send(myName + " is online");
@@ -63,7 +63,7 @@
 
         function test1(input) {
             var input = document.getElementById('chat').value;
-            var myName = document.getElementById('myname').value;
+            var myName = document.getElementById('<?php echo $member->id ?>').value;
             ws.send(myName + ":" + input);
             $("#chatBox").append("<p id='b'><span id='myChat'> &nbsp; " + input + " &nbsp; </span></p>");
             document.getElementById('chat').value= '';
@@ -91,16 +91,43 @@
 
             }
             ,2000)
+
+        $(document).ready(function () {
+            var numRequest = new XMLHttpRequest();
+            numRequest.onreadystatechange = function () {
+                if (numRequest.readyState == 4 && numRequest.status == 200) {
+                    var ret = numRequest.responseText;
+                    var num = document.getElementById('numOfOnline');
+                    num.innerHTML = ret
+                }
+            };
+
+
+
+        setInterval(function () {
+                numRequest.open('POST', 'nowOnline.php', true);
+                numRequest.send();
+                // var div = document.getElementById('chatBox');
+                // div.scrollTop = div.scrollHeight;
+
+            }
+            , 2000);
+        //
+        });
+        //
+
+
         //
         // function test1() {
         //     var val= $(this).attr("value");
         //     $("#debug").value = val;
         // }
 
+
         function p2p(toId) {
             // document.getElementById('debug').value=myid;
 
-            var myName=document.getElementById('myname').value;
+            var myName=document.getElementById('<?php echo $member->id ?>').value;
             // var yourName=document.getElementById(this).value;
 
             window.open("p2p.php?myName="+ myName+"&toId="+toId,1,config="location=no,toolbar=no")
@@ -160,20 +187,20 @@
 
         #chatSpan {
             /*width : 380px;*/
-            background-color: #00CC00;
+            background-color: #acf298;
             border-radius: 20px;
 
         }
 
         #myChat {
             /*width : 380px;*/
-            background-color: #00CC00;
+            background-color: #acf298;
             border-radius: 20px;
             /*border-right: 10px solid transparent;*/
             /*transform: rotate(35deg);*/
         }
 
-        #name_list,#myname {
+        #name_list, .myname {
             border: none;
             font-size: 1em;
             width: 195px;
@@ -182,7 +209,8 @@
             text-indent: 2em;
             padding: 0 1px 0 4px;
         }
-        #name_list:hover,#myname:hover{
+
+        #name_list:hover, .myname:hover {
             background-color: lightgray;
         }
 
@@ -214,7 +242,8 @@
 <?php
 echo "<div class='list' id='onlineList'>";
 echo "<h1 style='font-size: 20px;font-weight: bold' >online list</h1>";
-echo "<div class='mlist' id='list_{$member->id}' ><input id='myname' name='{$member->name}' value='{$member->name}' readonly >"
+echo "<small><span>Online People : </span><span id='numOfOnline' style='color: red'></span></small>";
+echo "<div class='mlist' id='list_{$member->id}' ><input class='myname' id='{$member->id}' name='{$member->name}' value='{$member->name}' readonly >"
     . " <div class='mlist' id='memberList'></div></div>";
 //echo "<div class='mlist' id='onlineList'></div>";
 

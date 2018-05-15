@@ -1,7 +1,7 @@
 <?php
 include_once 'sql.php';
 include_once 'member.php';
-include_once 'Chat.php';
+include_once 'onlineList.php';
 
 session_start();
 $member = $_SESSION['member'];

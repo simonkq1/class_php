@@ -8,7 +8,7 @@ $member = $_SESSION['member'];
 $toId=$_SESSION['toId'];
 $myName=$_SESSION['myName'];
 
-$sql = "select chattext.cid,chattext.date,chattext.text,member.name,chattext.toid from chattext,member where chattext.cid=member.id";
+$sql = "select chattext.cid,chattext.date,chattext.text,member.name,chattext.toid from chattext,member where chattext.cid=member.id and chattext.toid={$toId} and member.name='{$myName}' order by date";
 $result = $mysqli->query($sql);
 if ($result = $mysqli->query($sql)) {
 

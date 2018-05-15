@@ -21,14 +21,14 @@ if (!isset($_SESSION['member'])) header('Location: login.php');
 
 
     };
-    // setInterval(function(){
-    //         xhttp.open('POST', 'test1.php', true)
-    //         xhttp.send();
-    //         var div = document.getElementById('chatBox');
-    //         div.scrollTop = div.scrollHeight;
-    //
-    //     }
-    //     ,1000)
+    setInterval(function(){
+            xhttp.open('POST', 'p2pAJAX.php', true)
+            xhttp.send();
+            var div = document.getElementById('chatBox');
+            div.scrollTop = div.scrollHeight;
+
+        }
+        ,1000)
 
     // });
 
