@@ -13,9 +13,9 @@ $server = IoServer::factory(
             new Chat()
         )
     ),
-    $port
+    $port+20
 );
 
 $server->run();
 
-header('Location:wstest1.php');
+header('Location:wstest2.php');

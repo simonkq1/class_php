@@ -12,7 +12,7 @@
     $member = $_SESSION['member'];
     ?>
     <script type="text/javascript">
-        var ws = new WebSocket("ws://localhost:8080");
+        var ws = new WebSocket("ws://localhost:8100");
         $(document).ready(WebSocketTest())
 
 
@@ -26,7 +26,7 @@
 
                 ws.onopen = function () {
 
-                    var myName = document.getElementById('myname').value;
+                    var myName = document.getElementById('name_list').value;
                     // debugger;
                     // Web Socket is connected, send data using send()
                     ws.send(myName + " is online");
@@ -35,7 +35,7 @@
 
                 ws.onmessage = function (evt) {
                     var received_msg = evt.data;
-                    // var now = new Date();
+                    var now = new Date()
                     $("#chatBox").append("<p id='a'><span id='chatSpan'> &nbsp; " + received_msg + " &nbsp; </span></p>")
                     // alert("Message is received..."+ received_msg);
                 };
@@ -63,12 +63,21 @@
 
         function test1(input) {
             var input = document.getElementById('chat').value;
-            var myName = document.getElementById('myname').value;
+            var myName = document.getElementById('name_list').value;
             ws.send(myName + ":" + input);
             $("#chatBox").append("<p id='b'><span id='myChat'> &nbsp; " + input + " &nbsp; </span></p>");
-            document.getElementById('chat').value= '';
+            $("#chat").value = '';
         }
 
+        $("#income_note").not($(":button")).keypress(function (ic_event) {
+            if (ic_event.keyCode == 13) {
+                if ($(this).attr("type") !== 'submit') {
+                    var input = document.getElementById('chat').value;
+                    ws.send(input);
+                    $("#chat").value = '';
+                }
+            }
+        })
 
         var xhttp = new XMLHttpRequest();
 
@@ -154,8 +163,6 @@
             border: 1px solid black;
             border-radius: 20px;
             outline: none;
-            font-size: 18px;
-            text-indent: 0.7em;
         }
 
         #chatSpan {
@@ -188,13 +195,11 @@
 
         #b {
             /*width : 380px;*/
-            padding-right: 4px;
             text-align: right;
 
         }
 
         #a {
-            padding-left: 4px;
             /*width : 380px;*/
             /*text-align: right;*/
 
@@ -227,15 +232,15 @@ echo "</div>"
 </div>
 <div class="chatArea">
     <!--    <form>-->
-    <input type="text" name="chat" id="chat" onkeypress="if (event.keyCode==13){ test1(this.value);}">
+    <input type="text" name="chat" id="chat">
     <!--            <input type="submit" value=">>">-->
     <button type="button" id="bt1" onclick="test1()"> >></button>
     <!--    </form>-->
 </div>
 
-<!--<div>-->
-<!--    <input id="debug">-->
-<!---->
-<!--</div>-->
+<div>
+    <input id="debug">
+
+</div>
 </body>
 </html>
