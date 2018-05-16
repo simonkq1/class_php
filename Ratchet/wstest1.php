@@ -2,6 +2,10 @@
 
 <html>
 <head>
+<!---->
+<!--    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">-->
+<!---->
+<!--    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>-->
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
     <?php
 
@@ -59,14 +63,17 @@
         });
 
 
-        var i = 0;
 
         function test1(input) {
             var input = document.getElementById('chat').value;
             var myName = document.getElementById('<?php echo $member->id ?>').value;
-            ws.send(myName + ":" + input);
-            $("#chatBox").append("<p id='b'><span id='myChat'> &nbsp; " + input + " &nbsp; </span></p>");
-            document.getElementById('chat').value= '';
+            if(input != ''){
+                ws.send(myName + ":" + input);
+                $("#chatBox").append("<p id='b'><span id='myChat'> &nbsp; " + input + " &nbsp; </span></p>");
+                document.getElementById('chat').value= '';
+            }
+            var div = document.getElementById('chatBox');
+            div.scrollTop = div.scrollHeight;
         }
 
 
@@ -130,9 +137,8 @@
             var myName=document.getElementById('<?php echo $member->id ?>').value;
             // var yourName=document.getElementById(this).value;
 
-            window.open("p2p.php?myName="+ myName+"&toId="+toId,1,config="location=no,toolbar=no")
+            window.open("p2p.php?myId="+ <?php echo $member->id ?> +"&toId="+toId,1,config="location=no,toolbar=no")
         }
-
 
     </script>
     <style>
@@ -249,6 +255,7 @@ echo "<div class='mlist' id='list_{$member->id}' ><input class='myname' id='{$me
 
 echo "</div>"
 ?>
+<a href="logout.php"> Logout </a>
 
 
 <div class="chatBox" id="chatBox">
