@@ -12,7 +12,7 @@
     $member = $_SESSION['member'];
     ?>
     <script type="text/javascript">
-        var ws = new WebSocket("ws://localhost:8100");
+        var ws = new WebSocket("ws://localhost:8080");
         $(document).ready(WebSocketTest())
 
 
@@ -112,7 +112,7 @@
             var myName=document.getElementById('myname').value;
             // var yourName=document.getElementById(this).value;
 
-            window.open("p2p.php?myName="+ myName+"&toId="+toId,1,config="location=no,toolbar=no")
+            window.open("p2p1.php?myName="+ myName+"&toId="+toId,1,config="location=no,toolbar=no")
         }
 
 

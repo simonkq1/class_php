@@ -1,6 +1,5 @@
 <?php
 include_once 'Ratchet/sql.php';
-include_once 'data.php';
 
 
 $sql = "select chattext.cid,chattext.date,chattext.text,member.name,chattext.toid "

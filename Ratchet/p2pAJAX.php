@@ -6,16 +6,13 @@ include_once 'data.php';
 
 session_start();
 $member = $_SESSION['member'];
-$toId=$_SESSION['toId'];
-$myId=$_SESSION['myId'];
+$toId=$_REQUEST['toId'];
+$myId=$_REQUEST['myId'];
 
-$sql = "select chattext.cid,chattext.date,chattext.text,member.name,chattext.toid"
-    . " from chattext,member where chattext.cid=member.id and chattext.toid={$toId} "
-    ."and member.id='{$myId}' order by date";
+//$sql = "select chattext.cid,chattext.date,chattext.text,member.name,chattext.toid from chattext,member where chattext.cid=member.id and chattext.toid={$toId} and member.id={$myId} order by date";
+$sql = "select chattext.cid,chattext.date,chattext.text,member.name,chattext.toid from chattext,member where chattext.cid=member.id and chattext.toid={$toId} and member.id={$myId} or chattext.cid=member.id and chattext.toid={$myId} and member.id={$toId}  order by date";
 $result = $mysqli->query($sql);
 $sql2="select name from member where id=$toId";
-$result2=$mysqli->query($sql);
-$data2=$result2->fetch_assoc();
 if ($result = $mysqli->query($sql)) {
 if($result->num_rows>0){
 
@@ -23,7 +20,7 @@ if($result->num_rows>0){
         $message[]=$data;
 
     }
-    $return=json_encode($message);
+    $return=json_encode($message,true);
     echo $return;
 }
 

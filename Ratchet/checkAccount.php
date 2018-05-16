@@ -17,7 +17,7 @@ if($result->num_rows>0){
         $sql="update member set online='on' where id={$member->id}";
         $mysqli->query($sql);
 
-            header('Location: wstest1.php');
+            header('Location: chatRoom.php');
 //        }
     }else{
 

@@ -1,3 +1,7 @@
+<!---->
+<!--<script>-->
+<!--    setTimeout(function(){window.close()},2000)-->
+<!--</script>-->
 <?php
 include_once 'Chat.php';
 use Ratchet\Server\IoServer;
@@ -18,4 +22,4 @@ $server = IoServer::factory(
 
 $server->run();
 
-header('Location:wstest1.php');
+header('Location:chatRoom.php');

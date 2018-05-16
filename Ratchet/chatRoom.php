@@ -7,17 +7,20 @@
 <!---->
 <!--    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>-->
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <link rel="stylesheet" href="roomStyle.css">
     <?php
 
     include_once 'sql.php';
     include_once 'member.php';
+    include_once 'setInterval.php';
     session_start();
     if (!isset($_SESSION['member'])) header('Location: login.php');
     $member = $_SESSION['member'];
+
     ?>
     <script type="text/javascript">
         var ws = new WebSocket("ws://localhost:8080");
-        $(document).ready(WebSocketTest())
+        $(document).ready(WebSocketTest(),setOnline())
 
 
         function WebSocketTest() {
@@ -86,18 +89,22 @@
                 chatBox.innerHTML = ret
             }
             ;
-
-
         };
 
         setInterval(function () {
-                xhttp.open('POST', 'test1.php', true)
+                xhttp.open('POST', 'onlineList.php', true)
                 xhttp.send();
-                // var div = document.getElementById('chatBox');
-                // div.scrollTop = div.scrollHeight;
+            },2000);
 
-            }
-            ,2000)
+
+function setOnline(){
+    setInterval(function(){
+        $.get('setOnline.php', function (data) {
+        })
+    },60000)
+
+}
+
 
         $(document).ready(function () {
             var numRequest = new XMLHttpRequest();
@@ -118,7 +125,7 @@
                 // div.scrollTop = div.scrollHeight;
 
             }
-            , 2000);
+            , 1000);
         //
         });
         //
@@ -141,99 +148,6 @@
         }
 
     </script>
-    <style>
-        .chatBox {
-            position: relative;
-            border: 1px solid black;
-            width: 400px;
-            height: 500px;
-            margin: auto;
-            overflow-y: scroll;
-            vertical-align: bottom;
-            margin-top: 20px;
-
-        }
-
-        .chatArea {
-            margin: auto;
-            text-align: center;
-            margin-top: 10px;
-
-        }
-
-        .list {
-            position: absolute;
-            border: 1px solid black;
-            width: 200px;
-            height: 530px;
-            margin-top: 20px;
-            margin-left: 100px;
-            /*align-content: left;*/
-            text-align: center;
-            align-content: center;
-
-        }
-
-        .mlist {
-            /*border:1px solid black;*/
-            width: 100px;
-
-        }
-
-        #chat {
-
-            width: 365px;
-            height: 30px;
-            border: 1px solid black;
-            border-radius: 20px;
-            outline: none;
-            font-size: 18px;
-            text-indent: 0.7em;
-        }
-
-        #chatSpan {
-            /*width : 380px;*/
-            background-color: #acf298;
-            border-radius: 20px;
-
-        }
-
-        #myChat {
-            /*width : 380px;*/
-            background-color: #acf298;
-            border-radius: 20px;
-            /*border-right: 10px solid transparent;*/
-            /*transform: rotate(35deg);*/
-        }
-
-        #name_list, .myname {
-            border: none;
-            font-size: 1em;
-            width: 195px;
-            height: 30px;
-            transition: background-color 0.1s;
-            text-indent: 2em;
-            padding: 0 1px 0 4px;
-        }
-
-        #name_list:hover, .myname:hover {
-            background-color: lightgray;
-        }
-
-        #b {
-            /*width : 380px;*/
-            padding-right: 4px;
-            text-align: right;
-
-        }
-
-        #a {
-            padding-left: 4px;
-            /*width : 380px;*/
-            /*text-align: right;*/
-
-        }
-    </style>
 </head>
 
 <body>
@@ -245,16 +159,14 @@
 <!--    <input type="text" id="input">-->
 <!--    <button type="button" onclick="test1()"> >>></button>-->
 <!--</form>-->
-<?php
-echo "<div class='list' id='onlineList'>";
-echo "<h1 style='font-size: 20px;font-weight: bold' >online list</h1>";
-echo "<small><span>Online People : </span><span id='numOfOnline' style='color: red'></span></small>";
-echo "<div class='mlist' id='list_{$member->id}' ><input class='myname' id='{$member->id}' name='{$member->name}' value='{$member->name}' readonly >"
-    . " <div class='mlist' id='memberList'></div></div>";
-//echo "<div class='mlist' id='onlineList'></div>";
+<div class='list' id='onlineList'>
+<h1 style='font-size: 20px;font-weight: bold' >online list</h1>
+<small><span>Online People : </span><span id='numOfOnline' style='color: red'></span></small>
+<div class='mlist' id='list_<?php echo $member->id ?>' ><input class='myname' id='<?php echo $member->id ?>' name='<?php echo $member->name ?>' value='<?php echo $member->name ?>' readonly >
+<div class='mlist' id='memberList'></div></div>
+<div class='mlist' id='onlineList'></div>
 
-echo "</div>"
-?>
+</div>
 <a href="logout.php"> Logout </a>
 
 
