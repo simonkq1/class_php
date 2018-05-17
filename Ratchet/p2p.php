@@ -27,7 +27,7 @@ $_SESSION['myId'] = $myId;
                     var data = JSON.parse(text);
                     $("#chatBox").empty();
                     for (i = 0; i < data.length; i++) {
-                        if (data[i].name == '<?php echo $member->name ?>') {
+                        if (data[i].account == '<?php echo $member->account ?>') {
                             $("#chatBox").append("<p id='b'> <span id='myChat'>  &nbsp;" + data[i].text + "&nbsp;</span><small>&nbsp; << " + data[i].name + "</small><br><small><small>" + data[i].date + "</small></small></p>");
                         } else {
                             $("#chatBox").append("<p id='a'><small>" + data[i].name + " >>&nbsp;</small> <span id='chatSpan'> &nbsp;" + data[i].text + "&nbsp;</span><br><small><small>" + data[i].date + "</small></small></p>");
