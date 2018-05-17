@@ -2,10 +2,7 @@
 
 <html>
 <head>
-    <!---->
-    <!--    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">-->
-    <!---->
-    <!--    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>-->
+
     <link rel="stylesheet" href="roomStyle.css">
     <link rel="stylesheet" href="jquery-ui/jquery-ui.css">
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
@@ -24,30 +21,25 @@
         var ws = new WebSocket("ws://localhost:8080");
         $(document).ready(WebSocketTest(), setOnline(), faceIcon());
 
+        // -------------------開啟WebSocket-------------------
+
+
 
         function WebSocketTest() {
 
             if ("WebSocket" in window) {
-                // alert("WebSocket is supported by your Browser!");
-
-                // Let us open a web socket
                 var wsa = ws.readyState;
 
                 ws.onopen = function () {
 
                     var myName = document.getElementById('<?php echo $member->id ?>').value;
-                    // debugger;
-                    // Web Socket is connected, send data using send()
                     ws.send(myName + " is online");
-                    // alert("Message is sent...");
                 };
 
                 ws.onmessage = function (evt) {
                     var received_msg = evt.data;
-                    // var now = new Date();
 
                     $("#chatBox").append("<p id='a'><span id='chatSpan'> &nbsp; " + received_msg + " &nbsp; </span></p>")
-                    // alert("Message is received..."+ received_msg);
                 };
 
                 ws.onclose = function () {
@@ -62,6 +54,7 @@
             }
         }
 
+        // -------------------傳送訊息-------------------
 
         function sendMessage(input) {
             var input = document.getElementById('chat').value;
@@ -75,6 +68,7 @@
             div.scrollTop = div.scrollHeight;
         }
 
+        // -------------------上線名單-------------------
 
         var xhttp = new XMLHttpRequest();
 
@@ -102,6 +96,9 @@
         }
 
 
+        // -------------------上線人數-------------------
+
+
         $(document).ready(function () {
             var numRequest = new XMLHttpRequest();
             numRequest.onreadystatechange = function () {
@@ -116,37 +113,23 @@
             setInterval(function () {
                     numRequest.open('POST', 'nowOnline.php', true);
                     numRequest.send();
-                    // var div = document.getElementById('chatBox');
-                    // div.scrollTop = div.scrollHeight;
 
                 }
                 , 1000);
             //
         });
 
-        //
-        // function test1() {
-        //     var val= $(this).attr("value");
-        //     $("#debug").value = val;
-        // }
-
+        // -------------------開啟一對一視窗-------------------
 
         function p2p(toId) {
-            // document.getElementById('debug').value=myid;
 
             var myName = document.getElementById('<?php echo $member->id ?>').value;
-            // var yourName=document.getElementById(this).value;
 
             window.open("p2p.php?myId=" + <?php echo $member->id ?> +"&toId=" + toId, 1, config = "location=no,toolbar=no")
         }
 
 
-        function createRoom() {
-            var room = document.getElementById('roomNumber').value;
-            $.post('test3.php', {room: room}, function (data, status) {
-                window.open('wstest2.php?room=' + room)
-            })
-        }
+        // -------------------表情符號-------------------
 
         function faceIcon() {
             $.post('faceIcon.php', function (data, status) {
@@ -164,10 +147,13 @@
             $("#chat").focus();
         }
 
-        function clearMessage(){
+        // -------------------清除訊息-------------------
+        function clearMessage() {
             $("#chatBox").empty();
         }
 
+
+        // -------------------jQuery-UI-------------------
         $(function () {
             $("#accordion").accordion({
                 collapsible: true,
@@ -205,9 +191,11 @@
 </div>
 
 <div class="chatArea">
-    <button type="button" class="bt2" id="bt2" onclick="clearMessage()"> clear message</button><br>
+    <button type="button" class="bt2" id="bt2" onclick="clearMessage()"> clear message</button>
+    <br>
     <input type="text" name="chat" id="chat" onkeypress="if (event.keyCode==13){ sendMessage(this.value);}">
-    <button type="button" id="bt1" onclick="sendMessage()" style="margin-bottom: 5px"> >></button><br>
+    <button type="button" id="bt1" onclick="sendMessage()" style="margin-bottom: 5px"> >></button>
+    <br>
 </div>
 
 <!--<div id="draggable" class="ui-widget-content c">-->

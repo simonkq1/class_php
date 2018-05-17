@@ -13,13 +13,14 @@ $myId = $_GET['myId'];
 $_SESSION['toId'] = $toId;
 $_SESSION['myId'] = $myId;
 ?>
-    <!--<link rel="stylesheet" href="popover.css">-->
     <script src="jquery-3.3.1.min.js"></script>
     <link rel="stylesheet" href="roomStyle.css">
     <script>
 
-        setInterval(function () {
 
+        // -------------------取得訊息記錄-------------------
+
+        setInterval(function () {
             $.post('p2pAJAX.php', {toId:<?php echo $toId ?>, myId:<?php echo $myId ?>}, function (text, status) {
                 // document.getElementById('debug').innerHTML=status;
                 if (status == 'success') {
@@ -36,6 +37,8 @@ $_SESSION['myId'] = $myId;
                 }
             });
         }, 500);
+
+        // -------------------發送訊息-------------------
 
         function sendMessage(text) {
             if (text != '') {

@@ -8,8 +8,6 @@ if (isset($_POST['account']) && isset($_POST['password'])) {
     $newPassword = password_hash($password, PASSWORD_DEFAULT);
 
 
-//    $sql = "insert into member (`name`,`account`,`password`) values ('{$rName}','{$account}','{$newPassword}')";
-//    $result = $mysqli->query($sql);
 
     $sql = "insert into member (`name`,`account`,`password`) values (?,?,?)";
     $stmt = $mysqli->prepare($sql);
@@ -25,13 +23,6 @@ if (isset($_POST['account']) && isset($_POST['password'])) {
         echo "<span style='color: red'>Account is exist</span>";
     }
 
-//
-//    if($mysqli->query($sql)){
-//
-//        header('Location:login.php');
-//    }else {
-//        echo 'error';
-//    }
 
 }
 

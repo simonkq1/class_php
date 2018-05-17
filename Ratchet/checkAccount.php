@@ -31,14 +31,11 @@ if($result->num_rows>0){
         $mysqli->query($sql);
 
             header('Location: chatRoom.php');
-        $_POST['error']=0;
 //        }
     }else{
         header('Location: login.php');
-        $_POST['error']=1;
     }
 }else{
     header('Location: login.php');
-    $_POST['error']=2;
 }
 
