@@ -1,30 +1,44 @@
 <?php
 include_once 'sql.php';
-if (isset($_REQUEST['account']) && isset($_REQUEST['password'])) {
-    $rName = $_REQUEST['realName'];
-    $account = $_REQUEST['account'];
-    $password = $_REQUEST['password'];
+if (isset($_POST['account']) && isset($_POST['password'])) {
+    $rName = $_POST['realName'];
+    $account = $_POST['account'];
+    $password = $_POST['password'];
 
     $newPassword = password_hash($password, PASSWORD_DEFAULT);
 
 
-    $sql = "insert into member (`name`,`account`,`password`) values ('{$rName}','{$account}','{$newPassword}')";
+//    $sql = "insert into member (`name`,`account`,`password`) values ('{$rName}','{$account}','{$newPassword}')";
 //    $result = $mysqli->query($sql);
 
+    $sql = "insert into member (`name`,`account`,`password`) values (?,?,?)";
+    $stmt = $mysqli->prepare($sql);
+    $stmt->bind_param("sss",$rName,$account,$newPassword);
 
-    if($mysqli->query($sql)){
 
+
+
+    if($stmt->execute()){
+        $result = $stmt->get_result();
         header('Location:login.php');
     }else {
-        echo 'error';
+        echo "<span style='color: red'>Account is exist</span>";
     }
+
+//
+//    if($mysqli->query($sql)){
+//
+//        header('Location:login.php');
+//    }else {
+//        echo 'error';
+//    }
 
 }
 
 ?>
 <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 
-<form>
+<form method="post">
 
 
     Real Name:

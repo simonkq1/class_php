@@ -5,8 +5,21 @@ session_start();
 $account=$_REQUEST['account'];
 $password=$_REQUEST['password'];
 
-$sql="select * from member where account='{$account}'";
-$result=$mysqli->query($sql);
+
+
+//$sql="select * from member where account='{$account}'";
+//$result=$mysqli->query($sql);
+
+
+$sql = "select * from member " .
+    "where account=?";
+
+$stmt = $mysqli->prepare($sql);
+$stmt->bind_param("s",$account);
+$stmt->execute();
+
+
+$result = $stmt->get_result();
 
 
 if($result->num_rows>0){
@@ -18,13 +31,14 @@ if($result->num_rows>0){
         $mysqli->query($sql);
 
             header('Location: chatRoom.php');
+        $_POST['error']=0;
 //        }
     }else{
-
         header('Location: login.php');
+        $_POST['error']=1;
     }
 }else{
-
     header('Location: login.php');
+    $_POST['error']=2;
 }
 

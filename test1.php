@@ -2,24 +2,14 @@
 
 <script>
 
-
-    $(document).ready(function () {
-        $("#bt1").click(function () {
-            $.get('test2.php', function (text, status) {
-               var data= JSON.parse(text);
-                for(i=0;i<data.length;i++){
-                    $("#id1").append(""+i+" : "+data[i].name+"<br>")
-                }
-            });
-        });
-
-    });
-
+    function newDoc() {
+        window.location.assign("face.php")
+    }
 
 </script>
 
 
-<input type="button" onclick="test1()" value="sayHello"/>
+<input type="button" onclick="newDoc()" value="sayHello"/>
 <div id="id1"></div>
 <div id="id2"></div>
 <div id="id3"></div>

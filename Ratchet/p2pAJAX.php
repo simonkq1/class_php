@@ -10,7 +10,7 @@ $toId=$_REQUEST['toId'];
 $myId=$_REQUEST['myId'];
 
 //$sql = "select chattext.cid,chattext.date,chattext.text,member.name,chattext.toid from chattext,member where chattext.cid=member.id and chattext.toid={$toId} and member.id={$myId} order by date";
-$sql = "select chattext.cid,chattext.date,chattext.text,member.name,chattext.toid from chattext,member where chattext.cid=member.id and chattext.toid={$toId} and member.id={$myId} or chattext.cid=member.id and chattext.toid={$myId} and member.id={$toId}  order by date";
+$sql = "select chattext.cid,chattext.date,chattext.text,member.name,chattext.toid from chattext,member where chattext.cid=member.id and chattext.toid={$toId} and member.id={$member->id} or chattext.cid=member.id and chattext.toid={$member->id} and member.id={$toId}  order by date";
 $result = $mysqli->query($sql);
 $sql2="select name from member where id=$toId";
 if ($result = $mysqli->query($sql)) {

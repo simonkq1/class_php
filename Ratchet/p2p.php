@@ -18,7 +18,6 @@ $_SESSION['myId'] = $myId;
     <link rel="stylesheet" href="roomStyle.css">
     <script>
 
-
         setInterval(function () {
 
             $.post('p2pAJAX.php', {toId:<?php echo $toId ?>, myId:<?php echo $myId ?>}, function (text, status) {
@@ -30,7 +29,7 @@ $_SESSION['myId'] = $myId;
                         if (data[i].name == '<?php echo $member->name ?>') {
                             $("#chatBox").append("<p id='b'> <span id='myChat'>  &nbsp;" + data[i].text + "&nbsp;</span><small>&nbsp; << " + data[i].name + "</small><br><small><small>" + data[i].date + "</small></small></p>");
                         } else {
-                            $("#chatBox").append("<p id='a'><small>" + data[i].name + " >> &nbsp;</small> <span id='chatSpan'> &nbsp;" + data[i].text + "&nbsp;</span><br><small><small>" + data[i].date + "</small></small></p>");
+                            $("#chatBox").append("<p id='a'><small>" + data[i].name + " >>&nbsp;</small> <span id='chatSpan'> &nbsp;" + data[i].text + "&nbsp;</span><br><small><small>" + data[i].date + "</small></small></p>");
 
                         }
                     }
@@ -64,5 +63,4 @@ $_SESSION['myId'] = $myId;
     </div>
 <?php
 
-if (!isset($_SESSION['member'])) header('Location: login.php');
 

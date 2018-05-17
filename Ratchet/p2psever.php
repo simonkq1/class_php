@@ -3,6 +3,8 @@ include_once 'Chat.php';
 use Ratchet\Server\IoServer;
 use Ratchet\Http\HttpServer;
 use Ratchet\WebSocket\WsServer;
+
+$room=$_REQUEST['room'];
 //use MyApp\Chat;
 
 require dirname(__DIR__) . '/Ratchet/vendor/autoload.php';
@@ -13,7 +15,7 @@ $server = IoServer::factory(
             new Chat()
         )
     ),
-    $port+20
+    $port+$room
 );
 
 $server->run();
