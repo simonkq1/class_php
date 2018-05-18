@@ -6,7 +6,7 @@ include_once 'data.php';
 
 session_start();
 $member = $_SESSION['member'];
-$toId=$_REQUEST['toId'];
+$toId=$_POST['toId'];
 $myId=$_REQUEST['myId'];
 
 //$sql = "select chattext.cid,chattext.date,chattext.text,member.name,chattext.toid from chattext,member where chattext.cid=member.id and chattext.toid={$toId} and member.id={$myId} order by date";

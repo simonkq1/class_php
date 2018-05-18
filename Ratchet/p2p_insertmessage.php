@@ -6,10 +6,10 @@ include_once 'data.php';
 
 session_start();
 $member = $_SESSION['member'];
-$toId=$_SESSION['toId'];
+$toId=$_REQUEST['toId'];
 $myId=$_SESSION['myId'];
 $text=$_REQUEST['text'];
 
-$sql="insert into chattext (`text`,`date`,`cid`,`toid`) values ('$text',now(),$myId,$toId)";
+$sql="insert into chattext (`text`,`date`,`cid`,`toid`) values ('$text',now(),$member->id,$toId)";
 
 $result = $mysqli->query($sql);

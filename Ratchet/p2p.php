@@ -19,7 +19,7 @@ $_SESSION['myId'] = $myId;
 
 
         // -------------------取得訊息記錄-------------------
-
+window.onload=function(){focus()};
         setInterval(function () {
             $.post('p2pAJAX.php', {toId:<?php echo $toId ?>, myId:<?php echo $myId ?>}, function (text, status) {
                 // document.getElementById('debug').innerHTML=status;
@@ -28,9 +28,13 @@ $_SESSION['myId'] = $myId;
                     $("#chatBox").empty();
                     for (i = 0; i < data.length; i++) {
                         if (data[i].account == '<?php echo $member->account ?>') {
-                            $("#chatBox").append("<p id='b'> <span id='myChat'>  &nbsp;" + data[i].text + "&nbsp;</span><small>&nbsp; << " + data[i].name + "</small><br><small><small>" + data[i].date + "</small></small></p>");
+                            $("#chatBox").append("<p id='b'> <span id='myChat'>  &nbsp;"
+                                + data[i].text + "&nbsp;</span><small>&nbsp; << " + data[i].name
+                                + "</small><br><small><small>" + data[i].date + "</small></small></p>");
                         } else {
-                            $("#chatBox").append("<p id='a'><small>" + data[i].name + " >>&nbsp;</small> <span id='chatSpan'> &nbsp;" + data[i].text + "&nbsp;</span><br><small><small>" + data[i].date + "</small></small></p>");
+                            $("#chatBox").append("<p id='a'><small>" + data[i].name
+                                + " >>&nbsp;</small> <span id='chatSpan'> &nbsp;" + data[i].text
+                                + "&nbsp;</span><br><small><small>" + data[i].date + "</small></small></p>");
 
                         }
                     }
@@ -42,12 +46,22 @@ $_SESSION['myId'] = $myId;
 
         function sendMessage(text) {
             if (text != '') {
-                $.get('p2p_insertmessage.php', {text: text}, function (data) {
+                $.post('p2p_insertmessage.php', {text: text, toId:<?php echo $toId ?>}, function (data) {
                 });
                 document.getElementById('chat').value = '';
+                setTimeout(scroll,30)
+            }else{
+                scroll();
             }
+            // var div = document.getElementById('chatBox');
+            // div.scrollTop = div.scrollHeight;
+        }
+        function scroll(){
             var div = document.getElementById('chatBox');
             div.scrollTop = div.scrollHeight;
+        }
+        function focus(){
+            $("#chat").focus();
         }
 
 

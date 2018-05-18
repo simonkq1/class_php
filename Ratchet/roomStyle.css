@@ -101,6 +101,7 @@
 
 }
 .face{
+    /*width: auto;*/
     align-items: left;
     border:none;
 }
@@ -112,9 +113,12 @@
     transition-duration: 0.2s;
 }
 #icon:hover{
-    width: 45px;
+    width: 40px;
     height: 28px;
-    border-radius: 5px;
-   rgba:211,211,211,0.3;
+    border-radius: 8px;
+   /*rgba:211,211,211,0.3;*/
    background-color: lightgray;
+}
+.face:hover{
+    width:auto;
 }

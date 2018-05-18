@@ -3,7 +3,7 @@
 <html>
 <head>
 
-    <link rel="stylesheet" href="roomStyle.css">
+    <link rel="stylesheet" href="roomStyle.css" charset="UTF-8">
     <link rel="stylesheet" href="jquery-ui/jquery-ui.css">
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
     <script src="jquery-ui/jquery-ui.js"></script>
@@ -125,7 +125,8 @@
 
             var myName = document.getElementById('<?php echo $member->id ?>').value;
 
-            window.open("p2p.php?myId=" + <?php echo $member->id ?> +"&toId=" + toId, 1, config = "location=no,toolbar=no")
+            window.open("p2p.php?myId=" + <?php echo $member->id ?> +"&toId=" + toId, 1,
+                config = "location=no,toolbar=no")
         }
 
 
