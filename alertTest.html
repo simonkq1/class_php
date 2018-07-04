@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <script language="javascript">
+        function test() {
+            alert("測試");
+
+        }
+
+        function bnClick() {
+            var text = document.getElementById("text").value;
+            window.webkit.messageHandlers.Test.postMessage(text)
+        }
+
+    </script>
+    <!--<style>-->
+        <!--.btn1 {-->
+            <!--width: 200px;-->
+            <!--height: 140px;-->
+            <!--background-color: yellow;-->
+            <!--font-size: large;-->
+            <!--border-radius: 15px;-->
+        <!--}-->
+    <!--</style>-->
+</head>
+<body>
+<!--<button type="submit" onclick="test()">Test</button>-->
+<input type="button" class="btn1" onclick="test()" value="Test2" style="width: 300px;height: 100px;background-color: yellow;font-size: 50px;text-align: center;border-radius: 10px;">
+<br><input type="text" id="text" placeholder="text" style="width: 300px; height: 50px">
+
+<br><div id="label" class="=font"> Label </div>
+</body>
+</html>
