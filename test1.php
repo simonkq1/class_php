@@ -1,11 +1,6 @@
-<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-
-<script>
-
-    document.getElementById("id1").innerHTML = "Hello world"
-
-
-</script>
-
-
-<div id="id1"></div>
+<?php
+    $n = "100";
+    $a = "00";
+    for ($i = 0; $i < $n; $i++) {
+        echo "{$a} : {$i} => {$v} <br>";
+    }

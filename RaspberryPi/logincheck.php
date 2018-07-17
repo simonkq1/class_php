@@ -5,7 +5,7 @@ $account = $_POST['account'];
 $password = $_POST['password'];
 
 $sql = "select * from member " .
-    "where account=?";
+    "where binary account=?";
 
 $stmt = $mysqli->prepare($sql);
 $stmt->bind_param("s",$account);
@@ -22,13 +22,22 @@ if($result->num_rows>0){
 //        if(isset($_SESSION['member'])){
         $sql="update member set online='on' where id={$member->id}";
         $mysqli->query($sql);
+        $jsonData = $member;
+//        $jsonData = array("status"=>"0", "id"=>"{$member->id}", "account"=>"{$member->account}", "rname"=>"{$member->username}");
+        $json = json_encode($jsonData);
+        echo $json;
 
-        echo 0;
+
 //        }
     }else{
-        echo 1; //密碼錯誤
+
+        $jsonData = array("status"=>"1");
+        $json = json_encode($jsonData);
+        echo $json;
     }
 }else{
-    echo 2;     //帳號錯誤
+    $jsonData = array("status"=>"2");
+    $json = json_encode($jsonData);
+    echo $json;
 }
 
